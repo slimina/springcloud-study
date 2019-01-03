@@ -1,0 +1,11 @@
+server:
+  port: 20002
+spring:
+  application:
+    name: consul-client
+  cloud:
+    consul:
+      host: localhost
+      port: 12345
+      discovery:
+        hostname: 10.1.199.153
