@@ -1,6 +1,13 @@
 # Hystrix
 
+1.HystrixCommand用在依赖服务返回单个操作结果的时候,两种执行方式:
+>execute():同步执行。从依赖的服务返回一个单一的结果对象，或是在发生错误的时候抛出异常。
+>queue();异步执行。直接返回一个Future对象，其中包含了服务执行结束时要返回的单一结果对象。
 HystrixCommand每次执行都需要new一个，不能使用单例，一个command实例只能执行一次
+
+2.HystrixObservableCommand 用在依赖服务返回多个操作结果的时候,也实现了两种执行方式:
+>observe():返回Obervable对象，他代表了操作的多个结果，他是一个HotObservable
+>toObservable():同样返回Observable对象，也代表了操作多个结果，但它返回的是一个Cold Observable。
 
 ## HystrixCommand
 Hystrix每个command都有对应的commandKey可以认为是command的名字，默认是当前类的名字 getClass().getSimpleName(),每个command也都一个归属的分组，

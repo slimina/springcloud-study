@@ -10,11 +10,11 @@ import com.netflix.hystrix.strategy.concurrency.HystrixConcurrencyStrategyDefaul
  * Hystrix的cache，个人的理解就是在上下文中，多次请求同一个command，返回值不会发生改变的时候可以使用。
  * cache如果要生效，必须声明上下文
  */
-public class CachedCommand extends HystrixCommand<String> {
+public class CommandCached extends HystrixCommand<String> {
     private  String key;
     private static final HystrixCommandKey COMMAND_KEY =
             HystrixCommandKey.Factory.asKey("CachedCommand_key");
-    public CachedCommand(String key){
+    public CommandCached(String key){
         super(Setter.withGroupKey(HystrixCommandGroupKey.Factory.asKey("CachedCommand_group"))
         .andCommandKey(COMMAND_KEY));
         this.key = key;

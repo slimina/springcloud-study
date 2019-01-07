@@ -8,11 +8,11 @@ import com.netflix.hystrix.strategy.properties.HystrixPropertiesCommandDefault;
 import com.netflix.hystrix.strategy.properties.HystrixPropertiesThreadPoolDefault;
 
 
-public class CommonHelloWorld  extends HystrixCommand<String>{
+public class CommandHelloWorld extends HystrixCommand<String>{
 
     private String name;
 
-    protected CommonHelloWorld(String name) {
+    protected CommandHelloWorld(String name) {
         super(HystrixCommandGroupKey.Factory.asKey("helloWorldGroup"));
         this.name = name;
     }
